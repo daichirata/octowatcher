@@ -1,15 +1,13 @@
 require 'uri'
-require 'json'
-require 'sinatra/base'
 require 'github_api'
 require 'mechanize'
 
+require 'sinatra/base'
 require 'coffee-script'
 require 'haml'
 require 'sass'
-require 'erubis'
 
-module GithubWatcher
+module OctoWatcher
   class App < Sinatra::Base
     set :haml, { :format => :html5 }
 
@@ -26,7 +24,10 @@ module GithubWatcher
       @user = params[:user]
       @page = params[:page] || 1
       begin
-        @watched = Github::Repos.new.watched :user => @user, :page => @page
+        @watched =
+          Github::Repos.new.watched(:user => @user, :page => @page).reject do |w|
+            w.owner.login == @user
+          end
       rescue Github::Error::NotFound
         @watched = []
         return haml :'user/not_found'

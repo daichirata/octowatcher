@@ -1,2 +1,10 @@
-#page-header
+%header#masthead
   %h1 OctoWatcher
+  %p
+    Your watched repositories of Github can be easily seen by list display. And README can be checked on that spot.
+
+%section#top
+  %p
+    Enter the account:
+  %form.navbar-search(action="/search")
+    %input.search-query(type="text" name="user" placeholder="Search...")

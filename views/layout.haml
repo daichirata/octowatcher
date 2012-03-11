@@ -1,15 +1,13 @@
 !!!
-%html(lang="ja")
+%html(lang="en")
   %head
     %meta(charset="UTF-8")
-      %title OctoWatcher
-      %meta(name="description" content="")
-      %meta(name="keywords"    content="")
+      %title= @user ? @user + ' - OctoWatcher' : 'OctoWatcher'
+      %meta(name="description" content="Your watched repositories of Github can be easily seen by list display. And README can be checked on that spot.")
+      %meta(name="keywords"    content="Your watched repositories of Github can be easily seen by list display. And README can be checked on that spot.")
       %link(rel="stylesheet"   href="/bootstrap.css")
       %link(rel="stylesheet"   href="/application.css")
-      %link(href="http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet" type="text/css")
       %script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
-      %script(src="/jquery.bottom-1.0.js")
       %script(src="/application.js")
       / Le HTML5 shim, for IE6-8 support of HTML elements
       / [if lt IE 9]
@@ -26,11 +24,14 @@
               %li.divider-vertical
               %li
                 %form.navbar-search.pull-left(action="/search")
-                  %input.search-query.span2(type="text" name="user" placeholder="Search...")
+                  %input.search-query.span2(type="text" name="user" value="#{@user}" placeholder="Search...")
+            %ul.nav.pull-right
+              %li
+                %p#all-close ALL Close
     #wrap-container
       .container
         = yield
 
     %footer
       .container
-        %p created_by @daic-h. Source Code <a href="https://github.com/daic-h/octowatcher"> daic-h/octowatcher</a>
+        %p created_by <a href="https://twitter.com/#!/Daic_h">@Daic-h</a>. Source Code <a href="https://github.com/daic-h/octowatcher">daic-h/octowatcher</a>
