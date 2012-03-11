@@ -11,5 +11,7 @@ gem 'haml'
 gem 'sass'
 
 # for Heroku
-gem 'therubyracer-heroku'
+group :production do
+  gem 'therubyracer-heroku'
+end
 

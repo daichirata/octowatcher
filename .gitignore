@@ -1,3 +1,4 @@
 .sass-cache
 .rvmrc
+.bundle
 tmp/*.log
