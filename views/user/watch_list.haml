@@ -1,0 +1,22 @@
+- @watched.each do |w|
+  - if w.owner.login != @user
+    .repository
+      .row.description
+        .span10
+          %h3
+            %img{src:w.owner.avatar_url}
+              %a{href:"https://github.com/#{w.owner.login}"}= w.owner.login
+              \/
+              %a{href:w.html_url}= w.name
+              \-
+              %a.get-readme{href:"/readme/#{w.owner.login}/#{w.name}"} Readme
+            %p= w.description
+        .span2
+          %span.language= w.language
+
+      .readme
+        %p.rclose - close -
+        .body
+- if @watched.links && @watched.links.next
+  .more
+    %a{href: @watched.links.next.sub('https://api.github.com', '')} More
