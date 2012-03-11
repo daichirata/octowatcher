@@ -9,3 +9,7 @@ gem 'mechanize'
 gem 'coffee-script'
 gem 'haml'
 gem 'sass'
+
+# for Heroku
+gem 'therubyracer-heroku'
+
