@@ -10,8 +10,13 @@ gem 'coffee-script'
 gem 'haml'
 gem 'sass'
 
-# for Heroku
+
 group :production do
   gem 'therubyracer-heroku'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'rack-test'
 end
 
