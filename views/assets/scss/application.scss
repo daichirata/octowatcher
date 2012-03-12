@@ -74,6 +74,14 @@ header {
         .description {
             border-bottom: 1px solid #DDD;
             position: relative;
+            .get-readme {
+                font: 300 20px  "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            .watcher, .forks {
+                color: #4183C4;
+                font-weight: normal;
+                font-size: 8px;
+            }
             p {
                 color: #333;
                 font-weight: normal;
@@ -81,8 +89,8 @@ header {
                 margin-bottom: 0;
             }
             img {
-                height: 30px;
-                width: 30px;
+                height: 36px;
+                width: 36px;
             }
             .language {
                 font-size: 40px;

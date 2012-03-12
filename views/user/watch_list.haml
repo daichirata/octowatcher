@@ -7,7 +7,9 @@
           %a{href:"https://github.com/#{w.owner.login}"}= w.owner.login
           \/
           %a{href:w.html_url}= w.name
-          \-
+          %span.watcher= "#{w.watchers} watching"
+          %span.forks= "#{w.forks} forks"
+          &nbsp;&nbsp;-&nbsp;&nbsp;
           %a.get-readme{href:"/readme/#{w.owner.login}/#{w.name}"} README
         %p= w.description
       .span2
