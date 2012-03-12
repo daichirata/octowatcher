@@ -28,16 +28,14 @@ $ ->
     eachHide [$('.body:visible'), $('.rclose:visible'), $(@)]
 
   $('.more a').live 'click', ->
-    if !$(@).data 'loading'
-      $(@).data 'loading', true
-      addPreloader($('.more'))
-      $.ajax
-        url: @href
-        dataType: 'html'
-        success: (data) ->
-          $('.more').remove()
-          $('#watch-list').append(data)
-          $(@).data 'loading', false
+    $('.more').remove()
+    addPreloader($('#watch-list'))
+    $.ajax
+      url: @href
+      dataType: 'html'
+      success: (data) ->
+        $('.preloader').remove()
+        $('#watch-list').append(data)
     return false
 
   addPreloader = (elem) ->

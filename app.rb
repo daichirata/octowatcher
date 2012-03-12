@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'uri'
 require 'github_api'
 require 'mechanize'
@@ -16,7 +17,7 @@ module OctoWatcher
     end
 
     get "/search" do
-      @user = params[:user]
+      @user = params[:user].gsub(/(^(\s|　)+)|((\s|　)+$)/, '')
       redirect "/users/#{URI.encode(@user)}/watched"
     end
 
