@@ -23,19 +23,16 @@ module OctoWatcher
 
     get '/users/:user/watched' do
       @user = params[:user]
-      @page = params[:page] || 1
+      @page = params[:page].to_i || 1
       begin
-        @watched =
-          Github::Repos.new.watched(:user => @user, :page => @page).reject do |w|
-            w.owner.login == @user
-          end
+        @watched = Github::Activity.new.starring.starred(:user => @user, :page => @page)
       rescue Github::Error::NotFound
         @watched = []
         return haml :'user/not_found'
       end
 
       if request.xhr?
-        haml :'user/watch_list', :layout => false
+        haml :'user/watched', :layout => false
       else
         haml :'user/index'
       end
@@ -56,4 +53,3 @@ module OctoWatcher
     end
   end
 end
-

@@ -1,10 +1,8 @@
 - if @watched.size == 0
   %header
     %h1= "#{@user} is not watched repositories."
-
 - else
   %header
     %h1= "#{@user}'s Watched Repositories."
   %section#watch-list
-    = haml :'user/watch_list', :layout => false
-
+    = haml :'user/watched', :layout => false

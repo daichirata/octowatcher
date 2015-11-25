@@ -1,4 +1,6 @@
 - @watched.each do |w|
+  - next if w.owner.login == @user
+
   .repository
     .row.description
       .span10
@@ -14,10 +16,9 @@
         %p= w.description
       .span2
         %span.language= w.language
-
     .readme
       %p.rclose - close -
       .body
 - if @watched.links && @watched.links.next
   .more
-    %a{href: @watched.links.next.sub('https://api.github.com', '')} More
+    %a{href: "/users/#{@user}/watched?page=#{@watched.links.next.match(/\?page=(\d)$/){|m| m[1] }}"} More

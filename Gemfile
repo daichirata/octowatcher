@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'bundler'
 gem 'rake'
@@ -9,7 +9,7 @@ gem 'mechanize'
 gem 'coffee-script'
 gem 'haml'
 gem 'sass'
-
+gem 'thin'
 
 group :production do
   gem 'therubyracer-heroku'
